@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzaria</title>
+    <style>
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        #fieldset1{
+            background-color: #C4D7F5;
+            border-radius: 15px;
+        }
+        #fieldset2{
+            background-color: #F5DFC4;
+            border-radius: 15px;
+        }
+        #fieldset3{
+            background-color: #B08856;
+            border-radius: 15px;
+            text-align: right;
+        }
+        .button{
+            background-color: #86ABD4;
+            color: white;
+            border-radius: 2px;
+            border-color: white;
+            text-align: center;
+            padding: 10px 20px;
+            margin:5px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: auto;
+        }
+        .button-alignment {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .password{
+            width: 75%;
+            margin-right: 10px;
+        }
+        
+        label{
+            text-align: right; 
+            width: 140px;
+            display:inline-flex;
+        }
+        .textarea-container label {
+            margin-top: 10px;
+            text-align: left;
+        }
+        .textarea-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .password_label{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pizza To Your Doorstep</h1>
+    <fieldset id="fieldset1">
+        <legend>Personal Details</Details></legend>
+        <label for="name">First Name: </label>
+        <input type="text" name="name" id="name", placeholder="Enter your first name" required><br><br>
+        <label for="name">Surname: </label>
+        <input type="text" name="name" id="name", placeholder="Enter your surname" required><br><br>
+        <label for="name">Email address: </label>
+        <input type="text" name="name" id="name"><br><br>
+        <div class="password_label">
+            <label for="name">Setup a <br> password: </label>
+            <input type="text" name="name" id="name", placeholder="Min 8 characters, use atleast 1 caps, no special characters", class="password" required><br><br>
+        </div>
+        </fieldset><br>
+    <fieldset id="fieldset2">
+        <legend>Details for the pizza</Details></legend>
+        <label for="date">Delivery date: </label>
+        <input type="date" id="date" name="date", value="2023-02-14", required><br><br>
+        <label for="name">Number of pizzas: </label>
+        <input type="index" name="index" id="index" required><br><br>
+        <label for="pizza1"> small </label>
+        <input type="radio" name="pizza" id="pizza1"><br><br>
+        <label for="pizza2"> Medium </label>
+        <input type="radio" name="pizza" id="pizza2"><br><br>
+        <label for="pizza3"> Large </label>
+        <input type="radio" name="pizza" id="pizza3"><br><br>
+        <label for="sauce"> Sauce: </label>
+        <select name="Sauce" id="sauce"><br><br>
+            <option value="marinara">Marinara Sauce</option>
+            <option value="bbq">BBQ Sauce</option>
+            <option value="none">Without Sauce</option>
+        </select><br><br>
+        <div class="textarea-container">
+            <label for="feedback"> Special Requirements: </label>
+            <textarea name="feedback" id="feedback" rows="4" cols="50">Please provide any special requirements.</textarea>
+        </div>    
+    </fieldset><br>
+    <fieldset id="fieldset3">
+        <div class="button-container">
+            <input type="button" value="Reset" name="reset_button" class="button">
+            <input type="button" value="Send" name="send_button" class="button">
+        </div>
+    </fieldset>
+    <hr>
+    <p>Last modified date: 15<sup>th</sup> June 2024</p>
+    <address><i>Email:<a href= "mailto: ashalya20230187@iit.ac.lk"> Ashalya Paranagama</a></i></address>
+
+</body>
+</html>
