@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial 5</title>
+    <style>
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+
+        .incorrect {
+            color: red;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>A Simple Maths Game</h1>
+    <div id="questions-container">
+        <p><span id="question1"></span> <span id="answer1"></span> <span id="feedback1"></span></p>
+        <p><span id="question2"></span> <span id="answer2"></span> <span id="feedback2"></span></p>
+        <p><span id="question3"></span> <span id="answer3"></span> <span id="feedback3"></span></p>
+        <p><span id="question4"></span> <span id="answer4"></span> <span id="feedback4"></span></p>
+        <p><span id="question5"></span> <span id="answer5"></span> <span id="feedback5"></span></p>
+        <p><span id="question6"></span> <span id="answer6"></span> <span id="feedback6"></span></p>
+        <p><span id="question7"></span> <span id="answer7"></span> <span id="feedback7"></span></p>
+        <p><span id="question8"></span> <span id="answer8"></span> <span id="feedback8"></span></p>
+        <p><span id="question9"></span> <span id="answer9"></span> <span id="feedback9"></span></p>
+        <p><span id="question10"></span> <span id="answer10"></span> <span id="feedback10"></span></p>
+    </div>
+    <p>Your Score: <span id="score"></span></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+    const questions = [
+        { q: '8 + 7 = ?', a: 15 },
+        { q: '12 x 6 = ?', a: 72 },
+        { q: '26 - 7 = ?', a: 19 },
+        { q: '9 + 10 = ?', a: 19 },
+        { q: '5 x 5 = ?', a: 25 },
+        { q: '16 / 4 = ?', a: 4 },
+        { q: '3 + 7 = ?', a: 10 },
+        { q: '6 - 3 = ?', a: 3 },
+        { q: '2 x 8 = ?', a: 16 },
+        { q: '14 + 5 = ?', a: 19 }
+    ];
+
+    let correctCount = 0;
+
+    questions.forEach((question, index) => {
+        const userAnswer = parseInt(prompt(question.q));
+        const questionSpan = document.getElementById(`question${index + 1}`);
+        const answerSpan = document.getElementById(`answer${index + 1}`);
+        const feedbackSpan = document.getElementById(`feedback${index + 1}`);
+
+        questionSpan.textContent = question.q;
+        answerSpan.textContent = userAnswer;
+
+        if (userAnswer === question.a) {
+            feedbackSpan.innerHTML = `&checkmark;`;
+            feedbackSpan.classList.add('correct');
+            correctCount++;
+        } else {
+            feedbackSpan.innerHTML = `&cross; Correct answer is ${question.a}`;
+            feedbackSpan.classList.add('incorrect');
+        }
+    });
+
+    const scoreSpan = document.getElementById('score');
+    scoreSpan.textContent = `${correctCount * 10}/100`;
+});
+    </script>
+    <hr>
+    <p>Last modified date: 29<sup>th</sup> June 2024</p>
+    <address><i>Email:<a href= "mailto: ashalya20230187@iit.ac.lk"> Ashalya Paranagama</a></i></address>
+</body>
+</html>
