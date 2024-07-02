@@ -14,7 +14,6 @@
             color: red;
             font-weight: bold;
         }
-
     </style>
 </head>
 <body>
@@ -34,47 +33,46 @@
     <p>Your Score: <span id="score"></span></p>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-    const questions = [
-        { q: '8 + 7 = ?', a: 15 },
-        { q: '12 x 6 = ?', a: 72 },
-        { q: '26 - 7 = ?', a: 19 },
-        { q: '9 + 10 = ?', a: 19 },
-        { q: '5 x 5 = ?', a: 25 },
-        { q: '16 / 4 = ?', a: 4 },
-        { q: '3 + 7 = ?', a: 10 },
-        { q: '6 - 3 = ?', a: 3 },
-        { q: '2 x 8 = ?', a: 16 },
-        { q: '14 + 5 = ?', a: 19 }
-    ];
+        const questions = [
+            { q: '8 + 7 = ?', a: 15 },
+            { q: '12 x 6 = ?', a: 72 },
+            { q: '26 - 7 = ?', a: 19 },
+            { q: '9 + 10 = ?', a: 19 },
+            { q: '5 x 5 = ?', a: 25 },
+            { q: '16 / 4 = ?', a: 4 },
+            { q: '3 + 7 = ?', a: 10 },
+            { q: '6 - 3 = ?', a: 3 },
+            { q: '2 x 8 = ?', a: 16 },
+            { q: '14 + 5 = ?', a: 19 }
+        ];
 
-    let correctCount = 0;
+        let correctCount = 0;
 
-    questions.forEach((question, index) => {
-        const userAnswer = parseInt(prompt(question.q));
-        const questionSpan = document.getElementById(`question${index + 1}`);
-        const answerSpan = document.getElementById(`answer${index + 1}`);
-        const feedbackSpan = document.getElementById(`feedback${index + 1}`);
+        for (let i = 0; i < questions.length; i++) {
+            const question = questions[i];
+            const userAnswer = parseInt(prompt(question.q));
+            const questionSpan = document.getElementById(`question${i + 1}`);
+            const answerSpan = document.getElementById(`answer${i + 1}`);
+            const feedbackSpan = document.getElementById(`feedback${i + 1}`);
 
-        questionSpan.textContent = question.q;
-        answerSpan.textContent = userAnswer;
+            questionSpan.textContent = question.q;
+            answerSpan.textContent = userAnswer;
 
-        if (userAnswer === question.a) {
-            feedbackSpan.innerHTML = `&checkmark;`;
-            feedbackSpan.classList.add('correct');
-            correctCount++;
-        } else {
-            feedbackSpan.innerHTML = `&cross; Correct answer is ${question.a}`;
-            feedbackSpan.classList.add('incorrect');
+            if (userAnswer === question.a) {
+                feedbackSpan.innerHTML = `&checkmark;`;
+                feedbackSpan.classList.add('correct');
+                correctCount++;
+            } else {
+                feedbackSpan.innerHTML = `&cross; Correct answer is ${question.a}`;
+                feedbackSpan.classList.add('incorrect');
+            }
         }
-    });
 
-    const scoreSpan = document.getElementById('score');
-    scoreSpan.textContent = `${correctCount * 10}/100`;
-});
+        const scoreSpan = document.getElementById('score');
+        scoreSpan.textContent = `${correctCount * 10}/100`;
     </script>
     <hr>
-    <p>Last modified date: 29<sup>th</sup> June 2024</p>
-    <address><i>Email:<a href= "mailto: ashalya20230187@iit.ac.lk"> Ashalya Paranagama</a></i></address>
+    <p>Last modified date: 30<sup>th</sup> June 2024</p>
+    <address><i>Email: <a href="mailto:ashalya20230187@iit.ac.lk">Ashalya Paranagama</a></i></address>
 </body>
 </html>
