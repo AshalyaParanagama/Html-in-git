@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial 6</title>
+    <style>
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+
+        .incorrect {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>A Simple Maths Game</h1>
+    <div id="questions-container">
+        <!-- Placeholder for 10 question blocks using classes -->
+        <p><span class="question"></span> <span class="answer"></span> <span class="feedback"></span></p>
+        <p><span class="question"></span> <span class="answer"></span> <span class="feedback"></span></p>
+        <p><span class="question"></span> <span class="answer"></span> <span class="feedback"></span></p>
+        <p><span class="question"></span> <span class="answer"></span> <span class="feedback"></span></p>
+        <p><span class="question"></span> <span class="answer"></span> <span class="feedback"></span></p>
+        <p><span class="question"></span> <span class="answer"></span> <span class="feedback"></span></p>
+        <p><span class="question"></span> <span class="answer"></span> <span class="feedback"></span></p>
+        <p><span class="question"></span> <span class="answer"></span> <span class="feedback"></span></p>
+        <p><span class="question"></span> <span class="answer"></span> <span class="feedback"></span></p>
+        <p><span class="question"></span> <span class="answer"></span> <span class="feedback"></span></p>
+    </div>
+    <p>Your Score: <span id="score"></span></p>
+    <button onclick="startQuiz()">Start Quiz</button>
+
+    <script>
+        // Array of objects for questions and answers
+        const questions = [
+            { q: '8 + 7 = ?', a: 15 },
+            { q: '12 x 6 = ?', a: 72 },
+            { q: '26 - 7 = ?', a: 19 },
+            { q: '9 + 10 = ?', a: 19 },
+            { q: '5 x 5 = ?', a: 25 },
+            { q: '16 / 4 = ?', a: 4 },
+            { q: '3 + 7 = ?', a: 10 },
+            { q: '6 - 3 = ?', a: 3 },
+            { q: '2 x 8 = ?', a: 16 },
+            { q: '14 + 5 = ?', a: 19 }
+        ];
+
+        // Function to start the quiz
+        function startQuiz() {
+            let correctCount = 0;
+
+            for (let i = 0; i < questions.length; i++) {
+                const question = questions[i];
+                const userAnswer = parseInt(prompt(question.q)); // Prompt user for answer
+
+                // Get elements by class name and update content
+                const questionSpan = document.getElementsByClassName('question')[i];
+                const answerSpan = document.getElementsByClassName('answer')[i];
+                const feedbackSpan = document.getElementsByClassName('feedback')[i];
+
+                questionSpan.textContent = question.q; // Display question
+                answerSpan.textContent = userAnswer; // Display user's answer
+
+                if (userAnswer === question.a) {
+                    feedbackSpan.innerHTML = `&checkmark;`; // Display checkmark for correct answer
+                    feedbackSpan.classList.add('correct'); // Apply correct class
+                    correctCount++;
+                } else {
+                    feedbackSpan.innerHTML = `&cross; Correct answer is ${question.a}`; // Display cross and correct answer
+                    feedbackSpan.classList.add('incorrect'); // Apply incorrect class
+                }
+            }
+
+            // Display score
+            const scoreSpan = document.getElementById('score');
+            scoreSpan.textContent = `${correctCount * 10}/100`; // Score calculation
+        }
+    </script>
+    <hr>
+    <p>Last modified date: 09<sup>th</sup> July 2024</p>
+    <address><i>Email: <a href="mailto:ashalya20230187@iit.ac.lk">Ashalya Paranagama</a></i></address>
+</body>
+</html>
